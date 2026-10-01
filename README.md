@@ -88,7 +88,7 @@ El test termina en **PASS** y devuelve código de salida 0 cuando se cumple la h
 | `browser-dynamic.dom.html` | DOM del dinámico tras ejecutar JS (ya trae el JSON-LD inyectado) |
 | `browser-static.jsonld` / `browser-dynamic.jsonld` | JSON-LD extraído del navegador |
 
-## Conclusión
+## Conclusión 
 
 - **El JSON-LD generado en cliente no existe para los agentes que no ejecutan JavaScript.**
   En `curl-dynamic.html` no hay ningún bloque `<script type="application/ld+json">`: el crawler

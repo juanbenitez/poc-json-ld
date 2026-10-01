@@ -1,0 +1,14 @@
+{
+  "name": "poc-json-ia",
+  "version": "1.0.0",
+  "private": true,
+  "description": "POC: JSON-LD estático vs. generado por JavaScript, y cómo lo ve un agente de IA.",
+  "type": "module",
+  "scripts": {
+    "test": "node test/compare.mjs",
+    "serve": "python3 -m http.server 8123 --bind 127.0.0.1"
+  },
+  "devDependencies": {
+    "puppeteer": "^25.12.0"
+  }
+}

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tortilla de patatas clásica — Recetas de la Abuela</title>
+  <meta name="description" content="Receta clásica de tortilla de patatas española, con cebolla, explicada paso a paso: ingredientes, tiempos, valores nutricionales y trucos para que quede jugosa.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://recetas.example.com/tortilla-de-patatas/">
+
+  <!--
+    DATOS ESTRUCTURADOS ESTÁTICOS
+    Este bloque forma parte del HTML que el servidor entrega.
+    Un cliente que NO ejecuta JavaScript (curl, la mayoría de crawlers de IA)
+    lo recibe tal cual.
+  -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://recetas.example.com/#website",
+        "url": "https://recetas.example.com/",
+        "name": "Recetas de la Abuela",
+        "description": "Recetas tradicionales españolas explicadas paso a paso.",
+        "inLanguage": "es-ES",
+        "publisher": { "@id": "https://recetas.example.com/#organization" }
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://recetas.example.com/#organization",
+        "name": "Recetas de la Abuela",
+        "url": "https://recetas.example.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Tortilla_de_patatas.jpg/1280px-Tortilla_de_patatas.jpg"
+        }
+      },
+      {
+        "@type": "Recipe",
+        "@id": "https://recetas.example.com/tortilla-de-patatas/#recipe",
+        "name": "Tortilla de patatas clásica",
+        "description": "Tortilla de patatas española jugosa, con cebolla pochada y huevos batidos, cuajada lentamente en sartén.",
+        "image": [
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Tortilla_de_patatas.jpg/1280px-Tortilla_de_patatas.jpg"
+        ],
+        "author": {
+          "@type": "Person",
+          "name": "María López"
+        },
+        "datePublished": "2026-02-10",
+        "inLanguage": "es-ES",
+        "prepTime": "PT20M",
+        "cookTime": "PT30M",
+        "totalTime": "PT50M",
+        "recipeYield": "4 raciones",
+        "recipeCategory": "Plato principal",
+        "recipeCuisine": "Española",
+        "keywords": "tortilla de patatas, tortilla española, receta tradicional, huevos, patatas, cebolla",
+        "recipeIngredient": [
+          "6 huevos grandes",
+          "800 g de patatas",
+          "1 cebolla mediana",
+          "200 ml de aceite de oliva virgen extra",
+          "Sal al gusto"
+        ],
+        "recipeInstructions": [
+          {
+            "@type": "HowToStep",
+            "position": 1,
+            "name": "Pelar y cortar",
+            "text": "Pela las patatas y córtalas en láminas finas de unos 3 mm. Corta la cebolla en juliana."
+          },
+          {
+            "@type": "HowToStep",
+            "position": 2,
+            "name": "Pochar en aceite",
+            "text": "Calienta el aceite en una sartén y pocha la cebolla a fuego medio durante 10 minutos. Añade las patatas y cocina 15 minutos más hasta que estén tiernas."
+          },
+          {
+            "@type": "HowToStep",
+            "position": 3,
+            "name": "Batir los huevos",
+            "text": "Bate los huevos con una pizca de sal en un bol grande. Escurre las patatas y la cebolla y mézclalas con el huevo batido. Deja reposar 5 minutos."
+          },
+          {
+            "@type": "HowToStep",
+            "position": 4,
+            "name": "Cuajar la tortilla",
+            "text": "Vierte la mezcla en una sartén antiadherente con un poco de aceite y cuaja a fuego medio-bajo, 4 minutos por cada lado."
+          },
+          {
+            "@type": "HowToStep",
+            "position": 5,
+            "name": "Reposar y servir",
+            "text": "Deja reposar la tortilla 5 minutos antes de servir para que asiente. Sirve templada o a temperatura ambiente."
+          }
+        ],
+        "nutrition": {
+          "@type": "NutritionInformation",
+          "calories": "320 kcal",
+          "proteinContent": "14 g",
+          "fatContent": "21 g",
+          "carbohydrateContent": "22 g"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.8",
+          "ratingCount": "127"
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg: #faf8f4;
+      --card: #ffffff;
+      --ink: #24211c;
+      --muted: #6f675d;
+      --accent: #b4531f;
+      --line: #e8e2d9;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.65;
+    }
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 2.5rem 1.25rem 4rem;
+    }
+    header { margin-bottom: 1.5rem; }
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-size: .72rem;
+      color: var(--accent);
+      font-weight: 700;
+    }
+    h1 {
+      font-size: 2rem;
+      line-height: 1.2;
+      margin: .35rem 0 .75rem;
+    }
+    .lede { color: var(--muted); margin: 0 0 1.25rem; }
+    img.hero {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      display: block;
+      border: 1px solid var(--line);
+    }
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem .75rem;
+      margin: 1.25rem 0;
+      padding: 0;
+      list-style: none;
+      font-size: .9rem;
+    }
+    .meta li {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: .25rem .75rem;
+      color: var(--muted);
+    }
+    h2 {
+      font-size: 1.25rem;
+      margin: 2rem 0 .75rem;
+      border-bottom: 2px solid var(--line);
+      padding-bottom: .35rem;
+    }
+    ul.ingredients { padding-left: 1.1rem; }
+    ul.ingredients li { margin: .25rem 0; }
+    ol.steps { counter-reset: step; list-style: none; padding: 0; }
+    ol.steps li {
+      counter-increment: step;
+      position: relative;
+      padding-left: 3rem;
+      margin: 0 0 1.1rem;
+    }
+    ol.steps li::before {
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 700;
+      display: grid;
+      place-items: center;
+      font-size: .95rem;
+    }
+    ol.steps strong { display: block; }
+    .nutrition {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .92rem;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .nutrition th, .nutrition td {
+      text-align: left;
+      padding: .55rem .9rem;
+      border-bottom: 1px solid var(--line);
+    }
+    .nutrition tr:last-child th, .nutrition tr:last-child td { border-bottom: 0; }
+    .nutrition th { color: var(--muted); font-weight: 500; }
+    footer {
+      margin-top: 2.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: .82rem;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <p class="eyebrow">Recetas de la Abuela</p>
+      <h1>Tortilla de patatas clásica</h1>
+      <p class="lede">
+        La tortilla española de siempre: patata y cebolla pochadas despacio y
+        cuajadas con huevo hasta quedar jugosas por dentro.
+      </p>
+      <img class="hero"
+           src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Tortilla_de_patatas.jpg/1280px-Tortilla_de_patatas.jpg"
+           alt="Tortilla de patatas española cortada en porciones">
+    </header>
+
+    <ul class="meta">
+      <li>Preparación: 20 min</li>
+      <li>Cocción: 30 min</li>
+      <li>Total: 50 min</li>
+      <li>4 raciones</li>
+      <li>Cocina española</li>
+    </ul>
+
+    <h2>Ingredientes</h2>
+    <ul class="ingredients">
+      <li>6 huevos grandes</li>
+      <li>800 g de patatas</li>
+      <li>1 cebolla mediana</li>
+      <li>200 ml de aceite de oliva virgen extra</li>
+      <li>Sal al gusto</li>
+    </ul>
+
+    <h2>Elaboración paso a paso</h2>
+    <ol class="steps">
+      <li><strong>Pelar y cortar</strong> Pela las patatas y córtalas en láminas finas de unos 3&nbsp;mm. Corta la cebolla en juliana.</li>
+      <li><strong>Pochar en aceite</strong> Calienta el aceite en una sartén y pocha la cebolla a fuego medio durante 10 minutos. Añade las patatas y cocina 15 minutos más hasta que estén tiernas.</li>
+      <li><strong>Batir los huevos</strong> Bate los huevos con una pizca de sal. Escurre las patatas y la cebolla y mézclalas con el huevo batido. Deja reposar 5 minutos.</li>
+      <li><strong>Cuajar la tortilla</strong> Vierte la mezcla en una sartén antiadherente con un poco de aceite y cuaja a fuego medio-bajo, 4 minutos por cada lado.</li>
+      <li><strong>Reposar y servir</strong> Deja reposar 5 minutos antes de servir para que asiente. Sirve templada o a temperatura ambiente.</li>
+    </ol>
+
+    <h2>Información nutricional</h2>
+    <table class="nutrition">
+      <tbody>
+        <tr><th>Calorías</th><td>320 kcal</td></tr>
+        <tr><th>Proteínas</th><td>14 g</td></tr>
+        <tr><th>Grasas</th><td>21 g</td></tr>
+        <tr><th>Carbohidratos</th><td>22 g</td></tr>
+      </tbody>
+    </table>
+
+    <footer>
+      <p>Receta de María López · Publicada el 10 de febrero de 2026 · Valoración media 4,8/5 (127 valoraciones)</p>
+    </footer>
+  </main>
+</body>
+</html>

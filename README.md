@@ -3,10 +3,14 @@
 Prueba de concepto para medir **si los datos estructurados JSON-LD llegan a un agente de IA**
 según cómo se entreguen:
 
-| Página | Cómo entrega el JSON-LD |
+| Página (URL pública) | Cómo entrega el JSON-LD |
 |---|---|
-| `index-static.html` | Incrustado en el HTML de origen (`<script type="application/ld+json">` en `<head>`) |
-| `index-dynamic.html` | Generado por JavaScript e inyectado en `DOMContentLoaded` |
+| [`/recetas/tortilla-de-patatas.html`](https://poc-json-ld.pages.dev/recetas/tortilla-de-patatas.html) | Incrustado en el HTML de origen (`<script type="application/ld+json">` en `<head>`) |
+| [`/recetas/tortilla-espanola.html`](https://poc-json-ld.pages.dev/recetas/tortilla-espanola.html) | Generado por JavaScript e inyectado en `DOMContentLoaded` |
+
+Las páginas usan **nombres neutros de recetario** y `index.html` es una portada normal,
+para que quien las visite (persona o agente) no vea pistas de que forman parte de una prueba.
+Desplegadas en <https://poc-json-ld.pages.dev/>.
 
 Las dos páginas describen la **misma receta ficticia** (*Tortilla de patatas clásica*, en español),
 tienen el **mismo HTML visible**, el **mismo CSS inline** y generan **exactamente el mismo JSON-LD**.
@@ -21,8 +25,10 @@ solo verá el JSON-LD del estático. Un **navegador real** verá el JSON-LD en a
 
 ```
 poc-json-ia/
-├── index-static.html     # receta + JSON-LD en el <head>
-├── index-dynamic.html    # clon; el JSON-LD se inyecta en DOMContentLoaded
+├── index.html                        # portada del recetario (página normal)
+├── recetas/
+│   ├── tortilla-de-patatas.html      # receta + JSON-LD en el <head>
+│   └── tortilla-espanola.html        # clon; el JSON-LD se inyecta en DOMContentLoaded
 ├── test/
 │   └── compare.mjs       # levanta el servidor, corre curl + navegador y compara
 ├── results/              # artefactos generados por el test
@@ -45,8 +51,9 @@ El test **arranca y apaga solo** un `python3 -m http.server` en `127.0.0.1:8123`
 Para ver las páginas a mano:
 
 ```bash
-npm run serve            # http://127.0.0.1:8123/index-static.html
-                         # http://127.0.0.1:8123/index-dynamic.html
+npm run serve            # portada:  http://127.0.0.1:8123/
+                         # estática: http://127.0.0.1:8123/recetas/tortilla-de-patatas.html
+                         # dinámica: http://127.0.0.1:8123/recetas/tortilla-espanola.html
 ```
 
 ## Qué hace el test
@@ -64,16 +71,16 @@ Ejecución real (`npm test`):
 
 | Comprobación | Resultado |
 |---|---|
-| `curl` ve JSON-LD en `index-static` | ✔ 1 bloque |
-| `curl` ve JSON-LD en `index-dynamic` | ✔ 0 bloques *(correcto: no debe haber)* |
-| navegador ve JSON-LD en `index-static` | ✔ 1 bloque |
-| navegador ve JSON-LD en `index-dynamic` | ✔ 1 bloque |
+| `curl` ve JSON-LD en `tortilla-de-patatas` | ✔ 1 bloque |
+| `curl` ve JSON-LD en `tortilla-espanola` | ✔ 0 bloques *(correcto: no debe haber)* |
+| navegador ve JSON-LD en `tortilla-de-patatas` | ✔ 1 bloque |
+| navegador ve JSON-LD en `tortilla-espanola` | ✔ 1 bloque |
 | JSON-LD del navegador: estático == dinámico | ✔ idénticos |
 
 ```
-                       curl (sin JS)   navegador (con JS)
-index-static.html          ✔ sí              ✔ sí
-index-dynamic.html         ✘ no              ✔ sí
+                              curl (sin JS)   navegador (con JS)
+tortilla-de-patatas.html           ✔ sí              ✔ sí
+tortilla-espanola.html             ✘ no              ✔ sí
 ```
 
 El test termina en **PASS** y devuelve código de salida 0 cuando se cumple la hipótesis.
@@ -110,6 +117,10 @@ El test termina en **PASS** y devuelve código de salida 0 cuando se cumple la h
   HTTP sin motor de render (a diferencia de Googlebot, que sí renderiza).
 - La imagen de la receta es una URL externa (Wikimedia) para mantener cada página en un
   único archivo; es el único recurso no local.
+- El **nombre de archivo ya no delata la variante**: las páginas cuelgan de `/recetas/` con
+  slugs de recetario. La única pista que queda en los HTML es el **dominio**
+  (`poc-json-ld.pages.dev`), que forma parte de las URLs del JSON-LD (`@id`, `url`, `canonical`);
+  si quieres ocultarlo también, habría que desplegar en otro dominio y reescribir esas URLs.
 
 ## Validación adicional
 

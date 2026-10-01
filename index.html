@@ -3,8 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>POC JSON-LD · Índice</title>
-  <meta name="description" content="Índice del POC que compara JSON-LD estático contra JSON-LD generado por JavaScript y cómo lo ve un agente de IA.">
+  <title>Recetas de la Abuela — Cocina tradicional española</title>
+  <meta name="description" content="Recetario de cocina tradicional española: recetas explicadas paso a paso, con ingredientes, tiempos e información nutricional.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://poc-json-ld.pages.dev/">
   <style>
     :root {
       --bg: #faf8f4;
@@ -22,11 +24,59 @@
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       line-height: 1.65;
     }
-    main {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 3rem 1.25rem 4rem;
+    .site-header {
+      border-bottom: 1px solid var(--line);
+      background: var(--card);
     }
+    .site-header .inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 1rem 1.25rem;
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .brand {
+      font-weight: 800;
+      font-size: 1.1rem;
+      text-decoration: none;
+      color: var(--accent);
+      letter-spacing: -.01em;
+    }
+    .site-header nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: .92rem;
+      margin-right: 1rem;
+    }
+    .site-header nav a:hover { color: var(--accent); }
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2.5rem 1.25rem 4rem;
+    }
+    h1 { font-size: 2.1rem; line-height: 1.2; margin: .25rem 0 .6rem; }
+    h2 { font-size: 1.3rem; margin: 2.5rem 0 1rem; }
+    .lede { color: var(--muted); margin: 0 0 2rem; max-width: 60ch; }
+    .featured {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 1.5rem;
+      align-items: center;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+    .featured img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      min-height: 220px;
+    }
+    .featured .body { padding: 1.5rem 1.6rem 1.6rem; }
     .eyebrow {
       text-transform: uppercase;
       letter-spacing: .12em;
@@ -34,108 +84,84 @@
       color: var(--accent);
       font-weight: 700;
     }
-    h1 { font-size: 2rem; line-height: 1.2; margin: .35rem 0 .75rem; }
-    .lede { color: var(--muted); margin: 0 0 2rem; }
-    .cards { display: grid; gap: 1rem; }
-    a.card {
-      display: block;
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      padding: 1.25rem 1.4rem;
-      text-decoration: none;
-      color: inherit;
-      transition: border-color .15s ease, transform .15s ease;
-    }
-    a.card:hover { border-color: var(--accent); transform: translateY(-2px); }
-    a.card h2 {
-      margin: 0 0 .35rem;
-      font-size: 1.15rem;
-      color: var(--accent);
-    }
-    a.card p { margin: 0; color: var(--muted); font-size: .95rem; }
-    .tag {
+    .featured h3 { font-size: 1.4rem; margin: .3rem 0 .5rem; }
+    .featured p { color: var(--muted); margin: 0 0 1rem; font-size: .96rem; }
+    .btn {
       display: inline-block;
-      font-size: .72rem;
-      font-weight: 700;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-      border-radius: 999px;
-      padding: .15rem .6rem;
-      margin-bottom: .6rem;
-      border: 1px solid var(--line);
-      color: var(--muted);
-    }
-    .tag.ok { color: #2f7d32; border-color: #bfe0c1; background: #f0f8f0; }
-    .tag.no { color: #b02a1f; border-color: #ecc3bd; background: #fdf1ef; }
-    .run {
-      margin-top: 2rem;
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      padding: 1.1rem 1.4rem;
-    }
-    .run h2 { font-size: 1rem; margin: 0 0 .5rem; }
-    code {
-      background: #f2ede5;
-      border-radius: 6px;
-      padding: .12rem .4rem;
-      font-size: .88rem;
-    }
-    pre {
-      background: #24211c;
-      color: #f5f1ea;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: .92rem;
+      padding: .55rem 1rem;
       border-radius: 8px;
-      padding: .9rem 1rem;
-      overflow-x: auto;
-      font-size: .85rem;
-      margin: .5rem 0 0;
     }
-    pre code { background: none; padding: 0; color: inherit; }
+    .btn:hover { filter: brightness(1.08); }
+    .about { color: var(--muted); max-width: 65ch; }
+    .about p { margin: .5rem 0; }
     footer {
-      margin-top: 2.5rem;
-      padding-top: 1rem;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
       border-top: 1px solid var(--line);
       color: var(--muted);
       font-size: .82rem;
     }
+    @media (max-width: 640px) {
+      .featured { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
+  <header class="site-header">
+    <div class="inner">
+      <a class="brand" href="/">Recetas de la Abuela</a>
+      <nav>
+        <a href="/">Inicio</a>
+        <a href="/recetas/tortilla-de-patatas.html">Recetas</a>
+        <a href="#sobre">Sobre el recetario</a>
+      </nav>
+    </div>
+  </header>
+
   <main>
-    <p class="eyebrow">POC · Datos estructurados</p>
-    <h1>JSON-LD estático vs. generado por JavaScript</h1>
+    <p class="eyebrow">Cocina tradicional</p>
+    <h1>Recetas de siempre, explicadas paso a paso</h1>
     <p class="lede">
-      Dos páginas idénticas en contenido y con el mismo JSON-LD. Solo cambia
-      <strong>cómo se entrega</strong>. Sirve para medir qué ve un agente de IA.
+      Un recetario sencillo de cocina española: ingredientes claros, tiempos reales
+      y trucos de casa para que cada plato salga bien a la primera.
     </p>
 
-    <div class="cards">
-      <a class="card" href="index-static.html">
-        <span class="tag ok">curl lo ve · JS lo ve</span>
-        <h2>Receta estática →</h2>
-        <p>El JSON-LD va incrustado en el HTML de origen. Cualquier cliente sin JavaScript lo recibe.</p>
-      </a>
+    <h2>Receta destacada</h2>
+    <article class="featured">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Tortilla_de_patatas.jpg/1280px-Tortilla_de_patatas.jpg"
+           alt="Tortilla de patatas española cortada en porciones">
+      <div class="body">
+        <p class="eyebrow">Plato principal · Española</p>
+        <h3>Tortilla de patatas clásica</h3>
+        <p>
+          Patata y cebolla pochadas despacio y cuajadas con huevo hasta quedar
+          jugosas por dentro. Lista en 50 minutos.
+        </p>
+        <a class="btn" href="/recetas/tortilla-de-patatas.html">Ver la receta</a>
+      </div>
+    </article>
 
-      <a class="card" href="index-dynamic.html">
-        <span class="tag no">curl NO lo ve · JS sí</span>
-        <h2>Receta dinámica →</h2>
-        <p>El JSON-LD se genera e inyecta en <code>DOMContentLoaded</code>. Sin ejecutar JS, no existe.</p>
-      </a>
-    </div>
-
-    <div class="run">
-      <h2>Reproducir el test</h2>
-      <p style="margin:0;color:var(--muted);font-size:.92rem;">
-        Compara ambos canales (curl vs. navegador) y deja artefactos en <code>results/</code>.
+    <h2 id="sobre">Sobre el recetario</h2>
+    <div class="about">
+      <p>
+        Aquí recopilamos recetas de cocina tradicional, probadas en casa y
+        escritas para que cualquiera pueda seguirlas.
       </p>
-      <pre><code>npm install
-npm test</code></pre>
+      <p>
+        Cada receta incluye ingredientes, elaboración detallada, tiempos de
+        preparación y cocción, y su información nutricional orientativa.
+      </p>
     </div>
-
-    <footer>
-      <p>Tortilla de patatas clásica · receta ficticia para pruebas de JSON-LD y GEO/SEO.</p>
-    </footer>
   </main>
+
+  <footer>
+    <p>© 2026 Recetas de la Abuela. Cocina tradicional española.</p>
+  </footer>
 </body>
 </html>

@@ -5,8 +5,8 @@
 //   (a) navegador   -> Chrome/Chromium real vía Puppeteer, SÍ ejecuta JavaScript
 //
 // Sobre dos páginas idénticas en contenido:
-//   index-static.html   -> JSON-LD incrustado en el HTML de origen
-//   index-dynamic.html  -> JSON-LD inyectado en DOMContentLoaded
+//   recetas/tortilla-de-patatas.html  -> JSON-LD incrustado en el HTML de origen
+//   recetas/tortilla-espanola.html    -> JSON-LD inyectado en DOMContentLoaded
 //
 // Uso:  npm test        (o)  node test/compare.mjs
 
@@ -24,8 +24,8 @@ const PORT = Number(process.env.PORT || 8123);
 const BASE = `http://127.0.0.1:${PORT}`;
 
 const PAGES = [
-  { key: 'static', label: 'index-static.html', path: '/index-static.html' },
-  { key: 'dynamic', label: 'index-dynamic.html', path: '/index-dynamic.html' },
+  { key: 'static', label: 'recetas/tortilla-de-patatas.html', path: '/recetas/tortilla-de-patatas.html' },
+  { key: 'dynamic', label: 'recetas/tortilla-espanola.html', path: '/recetas/tortilla-espanola.html' },
 ];
 
 mkdirSync(RESULTS, { recursive: true });
@@ -147,23 +147,23 @@ async function main() {
   const has = (arr) => arr.length > 0;
   const checks = [
     {
-      name: 'curl ve JSON-LD en index-static',
+      name: 'curl ve JSON-LD en tortilla-de-patatas (HTML estático)',
       pass: has(results.curl.static),
       detail: `${results.curl.static.length} bloque(s)`,
     },
     {
-      name: 'curl ve JSON-LD en index-dynamic',
+      name: 'curl ve JSON-LD en tortilla-espanola (generado por JS)',
       expected: false,
       pass: !has(results.curl.dynamic),
       detail: `${results.curl.dynamic.length} bloque(s)`,
     },
     {
-      name: 'navegador ve JSON-LD en index-static',
+      name: 'navegador ve JSON-LD en tortilla-de-patatas',
       pass: has(results.browser.static),
       detail: `${results.browser.static.length} bloque(s)`,
     },
     {
-      name: 'navegador ve JSON-LD en index-dynamic',
+      name: 'navegador ve JSON-LD en tortilla-espanola',
       pass: has(results.browser.dynamic),
       detail: `${results.browser.dynamic.length} bloque(s)`,
     },
